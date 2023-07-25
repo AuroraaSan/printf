@@ -25,7 +25,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 	ptr = &buffer[49];
 	*ptr = '\0';
 
-	do{
+	do {
 		*--ptr = array[n % base];
 		n /= base;
 	} while (n != 0);
@@ -44,7 +44,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 int print_unsigned(va_list ap, params_t *params)
 {
 	unsigned long l;
-	
+
 	if (params->l modifier)
 		l = (unsigned long)va_arg(ap, unsigned long);
 	else if (params->h modifier)
