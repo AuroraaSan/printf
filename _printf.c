@@ -1,4 +1,33 @@
 #include "main.h"
+#include <stdarg.h>
+#include <unistd.h> // For write function
+
+#define BUF_SIZE 1024
+/**
+ * _putchar - print
+ * @c: char
+ * Return: bytes
+*/
+
+int _putchar(char c)
+{
+	static char buf[BUF_SIZE];
+	static int index = 0;
+	int bytes_written = 0;
+
+	if (c == BUF_FLUSH || index >= BUF_SIZE - 1)
+	{
+		bytes_written = write(1, buf, index);
+		index = 0;
+	}
+
+	if (c != BUF_FLUSH)
+	{
+		buf[index++] = c;
+	}
+
+	return bytes_written;
+}
 /**
  * _printf - print
  * @format: string
