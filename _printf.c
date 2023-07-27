@@ -1,17 +1,9 @@
 #include "main.h"
 /**
- * _putchar - print
- * @c: char
- * Return: print
-*/
-int _putchar(char c)
-{
-    return write(1, &c, 1);
-}
-/**
  * _printf - print
- * @format: string
- * Return: bytes printed
+ * @format: format
+ * @...: args
+ * Return: sum
 */
 int _printf(const char *format, ...)
 {
