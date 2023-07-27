@@ -50,6 +50,7 @@ typedef struct specific
 	int (*f)(va_list, params_t *);
 } specifier_t;
 /* for put.c module */
+int _printf(const char *format, ...);
 int _puts(char *str);
 int _putchar(int c);
 int print_char(va_list ap, params_t *params);
@@ -84,6 +85,5 @@ int print_number_left_shift(char *str, params_t *params);
 /*for params.c, printf.c and string_fields.c*/
 void init_params(params_t *params, va_list ap);
 char *get_precision(char *p, params_t *params, va_list ap);
-int _printf(const char *format, ...);
 
 #endif
