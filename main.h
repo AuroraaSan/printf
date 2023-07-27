@@ -28,16 +28,16 @@
 */
 typedef struct param
 {
-	unsigned int uni		: 1;
-	unsigned int plus		: 1;
-	unsigned int space		: 1;
-	unsigned int hash		: 1;
-	unsigned int zero		: 1;
-	unsigned int min		: 1;
+	unsigned int uni : 1;
+	unsigned int plus : 1;
+	unsigned int space : 1;
+	unsigned int hash : 1;
+	unsigned int zero : 1;
+	unsigned int min : 1;
 	unsigned int wid;
 	unsigned int prec;
-	unsigned int h_mod		: 1;
-	unsigned int l_mod		: 1;
+	unsigned int h_mod : 1;
+	unsigned int l_mod : 1;
 } params_t
 /**
  * struct specific - struct specifier
