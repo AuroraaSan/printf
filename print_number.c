@@ -4,7 +4,7 @@
  * @c: char
  * Return: 1 or 0
 */
-init _isdigit(int c)
+int _isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -30,7 +30,7 @@ int _strlen(char *s)
 int print_number(char *str, params_t *params)
 {
 	unsigned int i = _strlen(str);
-	int neg = (!params->unsign && *str == '-');
+	int neg = (!params->uni && *str == '-');
 
 	if (!params->prec && *str == '0' && !str[1])
 		str = "";
@@ -39,7 +39,7 @@ int print_number(char *str, params_t *params)
 		str++;
 		i--;
 	}
-	if (params->prec != UNIT_MAX)
+	if (params->prec != UINT_MAX)
 		while (i++ < params->prec)
 			*--str = '0';
 	if (neg)
@@ -68,7 +68,7 @@ int print_number_right_shift(char *str, params_t *params)
 		str++;
 	else
 		neg = 0;
-	if ((params->plus && !neg2) || (!params->plus && params->space && !neg1))
+	if ((params->plus && !neg2) || (!params->plus && params->space && !neg2))
 		i++;
 	if (neg && pad_char == '0')
 		n += _putchar('-');
@@ -110,7 +110,7 @@ int print_number_left_shift(char *str, params_t *params)
 	else if (params->space && !neg2 && !params->uni)
 		n += _putchar(' '), i++;
 	n += _puts(str);
-	while (i++ < params->width)
+	while (i++ < params->wid)
 		n += _putchar(pad_char);
         return (n);
 }

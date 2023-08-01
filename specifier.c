@@ -27,7 +27,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 
 	while (specifiers[i].specifier)
 	{
-		if (*s == specfiers[i].specifier[0])
+		if (*s == specifiers[i].specifier[0])
 		{
 			return (specifiers[i].f);
 		}
@@ -122,7 +122,7 @@ char *get_width(char *s, params_t *params, va_list ap)
 		while (_isdigit(*s))
 			d = d * 10 + (*s++ - '0');
 	}
-	params->width = d;
+	params->wid = d;
 	return (s);
 }
 

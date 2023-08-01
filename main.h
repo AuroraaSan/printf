@@ -14,7 +14,7 @@
 #define CONVERT_LOWERCASE   1
 #define CONVERT_UNSIGNED    2
 /**
- * struct param - initiating a struct for parametrs flags
+ * struct params - initiating a struct for parametrs flags
  * @uni: for unsigned values
  * @plus: for plus flag
  * @space: spaces flag
@@ -26,7 +26,7 @@
  * @h_mod: h modifier flag
  * @l_mod: l modifier flag
 */
-typedef struct param
+typedef struct params
 {
 	unsigned int uni : 1;
 	unsigned int plus : 1;
@@ -38,7 +38,7 @@ typedef struct param
 	unsigned int prec;
 	unsigned int h_mod : 1;
 	unsigned int l_mod : 1;
-} params_t
+} params_t;
 /**
  * struct specific - struct specifier
  * @specifier: format
@@ -65,7 +65,7 @@ int print_address(va_list ap, params_t *params);
 int (*get_specifier(char *s))(va_list, params_t *params);
 int get_print_func(char *s, va_list ap, params_t *params);
 int get_flag(char *s, params_t *params);
-int get modifier(char *s, params_t *params);
+int get_modifier(char *s, params_t *params);
 char *get_width(char *s, params_t *params, va_list ap);
 /* for number.c module */
 int print_hex(va_list ap, params_t *params);

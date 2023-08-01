@@ -24,7 +24,7 @@ int print_hex(va_list ap, params_t *params)
 		*--str = 'X';
 		*--str = '0';
 	}
-	params->unsign = 1;
+	params->uni = 1;
 	return (c += print_number(str, params));
 }
 /**
@@ -33,7 +33,7 @@ int print_hex(va_list ap, params_t *params)
  * @params: struct
  * Return: bytes
 */
-int print_HEX(va_list, params_t *params)
+int print_HEX(va_list ap, params_t *params)
 {
 	unsigned long l;
 	int c = 0;
@@ -52,7 +52,7 @@ int print_HEX(va_list, params_t *params)
 		*--str = 'X';
 		*--str = '0';
 	}
-	params->unsign = 1;
+	params->uni = 1;
 	return (c += print_number(str, params));
 }
 /**
@@ -69,7 +69,7 @@ int print_binary(va_list ap, params_t *params)
 
 	if (params->hash && n)
 		*--str = '0';
-	params->unsign = 1;
+	params->uni = 1;
 	return (c += print_number(str, params));
 }
 /**
@@ -94,6 +94,6 @@ int print_octal(va_list ap, params_t *params)
 
 	if (params->hash && l)
 		*--str = '0';
-	params->unsign = 1;
+	params->uni = 1;
 	return (c += print_number(str, params));
 }

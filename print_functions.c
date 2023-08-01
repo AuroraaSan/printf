@@ -10,7 +10,7 @@ int print_char(va_list ap, params_t *params)
 	char pad_char = ' ';
 	unsigned int pad = 1, sum = 0, ch = va_arg(ap, int);
 
-	if (params->minus_flag)
+	if (params->min)
 		sum += _putchar(ch);
 	while (pad++ < params->wid)
 		sum += _putchar(pad_char);
@@ -26,16 +26,14 @@ int print_char(va_list ap, params_t *params)
 */
 int print_int(va_list ap, params_t *params)
 {
-	long l;
-
 	if (params->l_mod)
-		l = va_arg(ap, long);
+		return (print_number(convert(va_arg(ap, long), 10, 0, params), params));
 	else if (params->h_mod)
-		l = (short int)va_arg(ap, int);
+		return (print_number(convert((short int)va_arg(ap, int), 10, 0, params), params));
 	else
-		l = (int)va_arg(ap, int);
-	return (print_number(convert(1, 10, 0, params), params));
+		return (print_number(convert((int)va_arg(ap, int), 10, 0, params), params));
 }
+
 /**
  * print_string - print string
  * @ap: pointer
@@ -56,7 +54,7 @@ int print_string(va_list ap, params_t *params)
 		j = pad = params->prec;
 	if (params->min)
 	{
-		if (params->prec != UNIT_MAX)
+		if (params->prec != UINT_MAX)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
@@ -66,7 +64,7 @@ int print_string(va_list ap, params_t *params)
 		sum += _putchar(pad_char);
 	if (!params->min)
 	{
-		if (params->prec != UNIT_MAX)
+		if (params->prec != UINT_MAX)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
